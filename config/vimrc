@@ -1,0 +1,55 @@
+" desabilita compatibilidade com vi.
+set nocompatible
+
+" habilita suporte ao  mouse.
+set mouse=a
+
+" habilita mover o cursor livremente.
+set virtualedit=all
+
+" exibe numeração das linhas.
+set number
+
+" habilita colorização de sintaxe.
+syntax on
+
+" exibe linha horizontal.
+set cursorline
+
+" exibe linha vertical.
+set cursorcolumn
+
+" habilita detecção tipo de arquivo.
+filetype on
+
+" habilita indentação de acordo com tipo de arquivo.
+filetype indent on
+
+" desabilita a quebra de linhas.
+set nowrap
+
+" habilita tabulação de 4 espaços.
+set tabstop=4
+
+" usa espaços no lugar de tabulações.
+set expandtab
+
+" habilita recuo de 4 espaços.
+set shiftwidth=4
+
+" tecla backspace volta 4 espaços se numa identação.
+set softtabstop=4
+
+" move temporários vim para fora do working dir (git).
+set backupdir=~/.vim/arquivos-backup//
+set directory=~/.vim/arquivos-swap//
+set undodir=~/.vim/arquivos-undo//
+
+" habilita autoclose.
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O

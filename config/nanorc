@@ -1,0 +1,11 @@
+# exibe números das linhas.
+set linenumbers
+
+# elimina quebra de linhas.
+set nowrap
+
+# fixa tabulação de 4 espaços.
+set tabsize 4
+
+# habilita indentação automática.
+set autoindent
