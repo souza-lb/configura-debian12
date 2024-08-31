@@ -1,0 +1,1 @@
+Adicione o arquivo de iso nesta pasta antes de rodar o script shell. Este arquivo pode ser removido com segurança.
