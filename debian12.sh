@@ -31,24 +31,24 @@ if [ "$timezone_atual" != "America/Sao_Paulo" ]; then
     echo "[ INFO - timezone ok $(date) ]"
 fi
 
-# Função para configurar arquivos.
+# Função para cópia de arquivos com backup.
 configurar_arquivo(){
     local arquivo_backup="$1"
     local arquivo="$2"
     local arquivo_config="$3"
     if [ ! -f "$arquivo_backup" ]; then
-        mv "$arquivo" "$arquivo_backup"
-        cp "$arquivo_config" "$arquivo"
+        sudo mv "$arquivo" "$arquivo_backup"
+        sudo cp "$arquivo_config" "$arquivo"
         echo "[ INFO - $(basename "$arquivo") ok - $(date) ]"
     fi
 }
 
-# Função para cópia simples de arquivos.
+# Função para cópia de arquivos simples.
 copia_arquivo(){
     local arquivo="$1"
     local arquivo_config="$2"
     if [ ! -f "$arquivo" ]; then
-        sudo cp "$arquivo_config" "$arquivo"
+        cp "$arquivo_config" "$arquivo"
         echo "[ INFO - $(basename "$arquivo") ok - $(date) ]"
     fi
 }
