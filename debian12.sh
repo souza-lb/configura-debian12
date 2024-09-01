@@ -37,8 +37,8 @@ configurar_arquivo(){
     local arquivo="$2"
     local arquivo_config="$3"
     if [ ! -f "$arquivo_backup" ]; then
-        sudo mv "$arquivo" "$arquivo_backup"
-        sudo cp "$arquivo_config" "$arquivo"
+        mv "$arquivo" "$arquivo_backup"
+        cp "$arquivo_config" "$arquivo"
         echo "[ INFO - $(basename "$arquivo") ok - $(date) ]"
     fi
 }
@@ -118,8 +118,8 @@ fi
 
 # Configuração editores de terminal.
 copia_arquivo "$HOME/.nanorc" "$pasta_config/nanorc"
+mkdir -p $HOME/.vim/{arquivos-backup,arquivos-swap,arquivos-undo}
 copia_arquivo "$HOME/.vimrc" "$pasta_config/vimrc"
-mkdir -p "$HOME/.vim/{arquivos-backup,arquivos-swap,arquivos-undo}"
 
 # Configuração geany.
 mkdir -p ~/.config/geany/colorschemes/
