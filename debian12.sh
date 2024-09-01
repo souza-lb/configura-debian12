@@ -94,7 +94,7 @@ if [ ! -f "$sources_list_backup" ]; then
     echo "[ pacotes instalados ]"
 
     sudo mv "$sources_list" "$sources_list_backup"
-    sudo cp "$config_dir/sources.list" "$sources_list"
+    sudo cp "$pasta_config/sources.list" "$sources_list"
     sudo apt-get update
     echo "[ sources configurado ]"
 else
@@ -125,7 +125,7 @@ if [ ! -f "$whiskermenu" ]; then
     echo "[ xfce4 temas configurados ]"
 
     xfconf-query -c xfce4-panel -p /plugins/plugin-1 -s whiskermenu
-    cp "$config_dir/whiskermenu-1.rc" "$whiskermenu"
+    cp "$pasta_config/whiskermenu-1.rc" "$whiskermenu"
     xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Super_L -s xfce4-popup-whiskermenu -n -t string
     xfce4-panel -r
     echo "[ xfce4 whiskermenu configurado ]"
@@ -143,7 +143,7 @@ configurar_arquivo "$HOME/.nanorc" "$HOME/.nanorc" "$pasta_config/nanorc"
 vimrc="$HOME/.vimrc"
 if [ ! -f "$vimrc" ]; then
     mkdir -p "$HOME/.vim/{arquivos-backup,arquivos-swap,arquivos-undo}"
-    cp "$config_dir/vimrc" "$vimrc"
+    cp "$pasta_config/vimrc" "$vimrc"
     echo "[ vimrc configurado ]"
 else
     echo "[ vimrc já configurado ]"
