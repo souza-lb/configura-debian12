@@ -1,4 +1,4 @@
-# deb cdrom:[Debian GNU/Linux 12.5.0 _Bookworm_ - Official amd64 DLBD Binary-1 with firmware 20240210-11:28]/ bookworm contrib main non-free-firmware
+# deb cdrom:[Debian GNU/Linux 12.6.0 _Bookworm_ - Official amd64 STICK16GB Binary-1 with firmware 20240629-10:19]/ bookworm contrib main non-free-firmware
 
 deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
 deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
