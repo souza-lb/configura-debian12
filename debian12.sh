@@ -77,7 +77,7 @@ sources_list_backup="/etc/apt/sources.list.backup"
 sources_list="/etc/apt/sources.list"
 
 if [ ! -f "$sources_list_backup" ]; then
-    sudo mount "$iso_file" /media/cdrom
+    sudo mount "$arquivo_iso" /media/cdrom
     sudo apt-cdrom -m add
 
     sudo apt-get install -y vim tmux htop \
