@@ -88,7 +88,7 @@ if [ ! -f "$sources_list_backup" ]; then
     configurar_arquivo "$sources_list_backup" "$sources_list" "$pasta_config/sources.list"
     sudo apt-get update
 
-    sudo apt-get install -y jigdo-file zeal
+    sudo apt-get install -y jigdo-file dc3dd mednafen
     echo "[ INFO - pacotes extras ok - $(date) ]"
 fi
 
