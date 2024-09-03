@@ -64,6 +64,8 @@ sudo update-grub
 configurar_arquivo "/etc/UPower/UPower.conf.backup" "/etc/UPower/UPower.conf" "$pasta_config/UPower.conf"
 configurar_arquivo "/etc/systemd/logind.conf.backup" "/etc/systemd/logind.conf" "$pasta_config/logind.conf"
 configurar_arquivo "$HOME/.bashrc.backup" "$HOME/.bashrc" "$pasta_config/bashrc"
+sudo chown $(whoami) $HOME/.bashrc
+sudo chown $(whoami) $HOME/.bashrc.backup
 
 # Instala pacotes e configura o sources.
 sources_list_backup="/etc/apt/sources.list.backup"
