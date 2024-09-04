@@ -59,8 +59,8 @@ cp_arquivo_backup(){
     local arquivo="$2"
     local arquivo_config="$3"
     if [ ! -f "$arquivo_backup" ]; then
-        sudo mv "$arquivo" "$arquivo_backup"
-        sudo cp "$arquivo_config" "$arquivo"
+        mv "$arquivo" "$arquivo_backup"
+        cp "$arquivo_config" "$arquivo"
         echo "[ INFO - $(basename "$arquivo") ok - $(date) ]"
     fi
 }
