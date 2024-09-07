@@ -161,9 +161,9 @@ if [ ! -f "$HOME/.gitconfig" ]; then
 fi
 
 # Configuração Jupyter Notebook.
-if [ ! -d "$HOME/Jupyter/ambientes/padrao"]; then
+if [ ! -d "$HOME/Jupyter/ambientes/padrao" ]; them
+    mkdir -p "$HOME/Jupyter/notebooks/padrao"    
     virtualenv "$HOME/Jupyter/ambientes/padrao"
-    mkdir -p "$HOME/Jupyter/notebooks/padrao"
     source "$HOME/Jupyter/ambientes/padrao/bin/activate"
     pip install --upgrade pip
     pip install ipykernel jupyterthemes==0.20.0
