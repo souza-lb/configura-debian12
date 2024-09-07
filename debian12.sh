@@ -177,5 +177,8 @@ fi
 sudo usermod -aG docker $(whoami)
 echo "[ INFO - docker ok - $(date) ]"
 
+# Define o Firefox-ESR como padrão para abrir HTML.
+xdg-mime default firefox-esr.desktop text/html
+
 # Marca o fim da execução.
 echo "[ INFO - fim da execução - $(date) ]"
