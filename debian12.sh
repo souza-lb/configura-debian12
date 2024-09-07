@@ -161,13 +161,13 @@ if [ ! -f "$HOME/.gitconfig" ]; then
 fi
 
 # Configuração Jupyter Notebook.
-if [ ! -d "$HOME/ambiente-jupyter" ]; then
-    virtualenv "$HOME/ambiente-jupyter"
-    mkdir -p "$HOME/notebooks-jupyter"
-    source "$HOME/ambiente-jupyter/bin/activate"
+if [ ! -d "$HOME/Jupyter/ambientes/padrao"]; then
+    virtualenv "$HOME/Jupyter/ambientes/padrao"
+    mkdir -p "$HOME/Jupyter/notebooks/padrao"
+    source "$HOME/Jupyter/ambientes/padrao/bin/activate"
     pip install --upgrade pip
     pip install ipykernel jupyterthemes==0.20.0
-    python3 -m ipykernel install --user --name=ambiente-jupyter
+    python3 -m ipykernel install --user --name=padrao
     jt -t onedork -T -N -kl
     deactivate
     echo "[ INFO - jupyter ok - $(date) ]"
