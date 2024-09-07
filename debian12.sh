@@ -78,22 +78,29 @@ sources_list_backup="/etc/apt/sources.list.backup"
 sources_list="/etc/apt/sources.list"
 
 if [ ! -f "$sources_list_backup" ]; then
-    # Atualiza o arquivo sources.list e atualiza a lista de pacotes.
+    sudo mount "$arquivo_iso" /media/cdrom
+    sudo apt-cdrom -m add
+
+    # Instala pacotes incluídos no iso.
+    sudo apt-get install -y \
+        vim tmux htop links curl speedtest-cli \
+        gddrescue testdisk gparted gsmartcontrol galculator gtkhash imagemagick \
+        libcupsimage2 gimp inkscape libreoffice-base audacity \
+        geany bluefish meld spyder git gcc g++ make gdb openjdk-17-jdk \
+        maven python3-pip python3-virtualenv r-base npm \
+        lua5.4 sqlite3 virt-manager docker.io docker-compose \
+        greybird-gtk-theme papirus-icon-theme
+
+    sudo umount /media/cdrom
+    echo "[ INFO - pacotes iso ok - $(date) ]"
+
     cp_arquivo_sudo "$sources_list_backup" "$sources_list" "$pasta_config/sources.list"
     sudo apt-get update
 
-    # Instala os pacotes
-    sudo apt-get install -y \
-        vim tmux htop links curl speedtest-cli \
-        gddrescue testdisk dc3dd gparted gsmartcontrol galculator gtkhash imagemagick \
-        libcupsimage2 gimp inkscape libreoffice-base audacity \
-        geany bluefish meld spyder git gcc g++ make gdb openjdk-17-jdk \
-        maven python3-pip python3-virtualenv jupyter r-base npm \
-        lua5.4 sqlite3 virt-manager docker.io docker-compose \
-        greybird-gtk-theme papirus-icon-theme \
-        mednafen
+    # Instala pacotes do repositório da internet.
+    sudo apt-get install -y jigdo-file spyder jupyter dc3dd mednafen
+    echo "[ INFO - pacotes extras ok - $(date) ]"
 
-    echo "[ INFO - pacotes ok - $(date) ]"
 fi
 
 # Configura o lightdm.
