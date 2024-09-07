@@ -85,6 +85,7 @@ if [ ! -f "$sources_list_backup" ]; then
     sudo mount "$arquivo_iso" /media/cdrom
     sudo apt-cdrom -m add
 
+    # Instala pacotes incluídos no iso.
     sudo apt-get install -y \
         vim tmux htop links curl speedtest-cli \
         gddrescue testdisk gparted gsmartcontrol galculator gtkhash imagemagick \
@@ -100,6 +101,7 @@ if [ ! -f "$sources_list_backup" ]; then
     cp_arquivo_sudo "$sources_list_backup" "$sources_list" "$pasta_config/sources.list"
     sudo apt-get update
 
+    # Instala pacotes do repositório da internet.
     sudo apt-get install -y jigdo-file dc3dd mednafen
     echo "[ INFO - pacotes extras ok - $(date) ]"
 fi
@@ -170,6 +172,10 @@ if [ ! -d "$HOME/ambiente-jupyter" ]; then
     deactivate
     echo "[ INFO - jupyter ok - $(date) ]"
 fi
+
+# Adiciona usuário corrente ao grupo Docker.
+sudo usermod -aG docker $(whoami)
+echo "[ INFO - docker ok - $(date) ]"
 
 # Marca o fim da execução.
 echo "[ INFO - fim da execução - $(date) ]"
