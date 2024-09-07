@@ -4,10 +4,6 @@
 nome_git="Leonardo Bruno"
 email_git="souzalb@proton.me"
 
-# Definição do arquivo iso.
-arquivo_iso="./iso/debian-12.7.0-amd64-STICK16GB-1.iso"
-pasta_config="./config"
-
 # Definição do log.
 mkdir -p "./log"
 exec > >(tee -a "./log/debian12.log")
@@ -82,28 +78,22 @@ sources_list_backup="/etc/apt/sources.list.backup"
 sources_list="/etc/apt/sources.list"
 
 if [ ! -f "$sources_list_backup" ]; then
-    sudo mount "$arquivo_iso" /media/cdrom
-    sudo apt-cdrom -m add
+    # Atualiza o arquivo sources.list e atualiza a lista de pacotes.
+    cp_arquivo_sudo "$sources_list_backup" "$sources_list" "$pasta_config/sources.list"
+    sudo apt-get update
 
-    # Instala pacotes incluídos no iso.
+    # Instala os pacotes
     sudo apt-get install -y \
         vim tmux htop links curl speedtest-cli \
-        gddrescue testdisk gparted gsmartcontrol galculator gtkhash imagemagick \
+        gddrescue testdisk dc3dd gparted gsmartcontrol galculator gtkhash imagemagick \
         libcupsimage2 gimp inkscape libreoffice-base audacity \
         geany bluefish meld spyder git gcc g++ make gdb openjdk-17-jdk \
         maven python3-pip python3-virtualenv jupyter r-base npm \
         lua5.4 sqlite3 virt-manager docker.io docker-compose \
-        greybird-gtk-theme papirus-icon-theme
+        greybird-gtk-theme papirus-icon-theme \
+        mednafen
 
-    sudo umount /media/cdrom
-    echo "[ INFO - pacotes iso ok - $(date) ]"
-
-    cp_arquivo_sudo "$sources_list_backup" "$sources_list" "$pasta_config/sources.list"
-    sudo apt-get update
-
-    # Instala pacotes do repositório da internet.
-    sudo apt-get install -y jigdo-file dc3dd mednafen
-    echo "[ INFO - pacotes extras ok - $(date) ]"
+    echo "[ INFO - pacotes ok - $(date) ]"
 fi
 
 # Configura o lightdm.
