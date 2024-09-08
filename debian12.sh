@@ -4,6 +4,9 @@
 nome_git="Leonardo Bruno"
 email_git="souzalb@proton.me"
 
+# Definição do arquivo iso.
+arquivo_iso="./iso/debian-12.7.0-amd64-STICK16GB-1.iso"
+
 # Definição do log.
 mkdir -p "./log"
 exec > >(tee -a "./log/debian12.log")
@@ -87,7 +90,8 @@ if [ ! -f "$sources_list_backup" ]; then
         gddrescue testdisk gparted gsmartcontrol galculator gtkhash imagemagick \
         libcupsimage2 gimp inkscape libreoffice-base audacity \
         geany bluefish meld spyder git gcc g++ make gdb openjdk-17-jdk \
-        maven python3-pip python3-virtualenv r-base npm \
+        maven python3-pip python3-virtualenv jupyter-notebook \
+        r-base npm \
         lua5.4 sqlite3 virt-manager docker.io docker-compose \
         greybird-gtk-theme papirus-icon-theme
 
